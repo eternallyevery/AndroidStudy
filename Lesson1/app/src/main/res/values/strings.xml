@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Lesson1</string>
-    <string name="username_text">请输入用户名</string>
-    <string name="password_text">请输入密码</string>
-    <string name="enter_text">点击登录</string>
-    <string name="registered_text">立即注册</string>
-    <string name="forget_password">忘记密码？</string>
-    <string name="birthday_text">赵源生日快乐!</string>
-</resources>
