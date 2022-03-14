@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.lesson1.databinding.ActiityLoginBinding;
+
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,25 +23,12 @@ import java.util.List;
  * @author lwj
  */
 public class LoginActivity extends AppCompatActivity {
-    private Button loginBt;
-    private TextView username;
-    private TextView phoneEt;
-    private RadioButton maleRb;
-    private RadioButton femaleRb;
-    private CheckBox javaCb;
-    private CheckBox androidCb;
-    private CheckBox mathCb;
-    private CheckBox enCb;
-    private RadioGroup love;
-    private RadioGroup gender;
-
+    private ActiityLoginBinding loginBinding;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.actiity_login);
-        setTitle("注册");
-        //获取所有的id
-        initView();
+        loginBinding = ActiityLoginBinding.inflate(getLayoutInflater());
+        setContentView(loginBinding.getRoot());
         //点击事件
         onClick();
     }
@@ -48,39 +37,21 @@ public class LoginActivity extends AppCompatActivity {
      * 点击事件
      */
     private void onClick() {
-        loginBt.setOnClickListener(view -> {
+        loginBinding.loginBt.setOnClickListener(view -> {
             List<String> strings = new ArrayList<String>();
-            for (int i = 0; i <love.getChildCount(); i++) {
-                CheckBox checkBox = (CheckBox) love.getChildAt(i);
+            for (int i = 0; i <loginBinding.love.getChildCount(); i++) {
+                CheckBox checkBox = (CheckBox) loginBinding.love.getChildAt(i);
                 if (checkBox.isChecked()){
                     strings.add(checkBox.getText().toString());
                 }
             }
             String s;
-            int checkedRadioButtonId = gender.getCheckedRadioButtonId();
+            int checkedRadioButtonId = loginBinding.gender.getCheckedRadioButtonId();
             TextView viewById = findViewById(checkedRadioButtonId);
             s = viewById.getText().toString();
-            String userN = username.getText().toString();
-            String phoneEt = this.phoneEt.getText().toString();
+            String userN = loginBinding.username.getText().toString();
+            String phoneEt = this.loginBinding.phoneEt.getText().toString();
             Toast.makeText(this,"姓名:"+userN+" 手机号:"+phoneEt + " 性别:"+ s + " 我喜欢的课程:" + strings.toString().substring(1,strings.toString().length()-1) ,Toast.LENGTH_LONG).show();
         });
-    }
-
-    /**
-     * 初始化获得所有的id
-     */
-    private void initView() {
-         loginBt = findViewById(R.id.login_bt);
-         username = findViewById(R.id.username);
-         phoneEt = findViewById(R.id.phone_et);
-         gender = findViewById(R.id.gender);
-         maleRb = findViewById(R.id.male_rb);
-         femaleRb = findViewById(R.id.female_rb);
-         javaCb = findViewById(R.id.java_cb);
-         androidCb = findViewById(R.id.android_cb);
-         mathCb = findViewById(R.id.math_cb);
-         enCb = findViewById(R.id.en_cb);
-         love = findViewById(R.id.love);
-
     }
 }

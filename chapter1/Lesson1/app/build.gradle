@@ -4,7 +4,9 @@ plugins {
 
 android {
     compileSdk 32
-
+    viewBinding{
+        enabled true
+    }
     defaultConfig {
         applicationId "com.example.lesson1"
         minSdk 21
