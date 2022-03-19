@@ -34,6 +34,8 @@ private ActivityMainBinding activityMainBinding;
         activityMainBinding.CE.setOnClickListener(this);
         activityMainBinding.C.setOnClickListener(this);
         activityMainBinding.tuige.setOnClickListener(this);
+        activityMainBinding.zero.setOnClickListener(this);
+
     }
 
     @Override
@@ -90,10 +92,25 @@ private ActivityMainBinding activityMainBinding;
         }else if(v.getId() == activityMainBinding.tuige.getId()){
             map = map.substring(0,map.length()-1);
             activityMainBinding.text.setText(map);
+        }else if(v.getId() == activityMainBinding.dian.getId()){
+            map += activityMainBinding.dian.getText().toString();
+            activityMainBinding.text.setText(map);
+        }else if(v.getId() == activityMainBinding.zero.getId()){
+            map += activityMainBinding.zero.getText().toString();
+            activityMainBinding.text.setText(map);
         }
         if (v.getId() == activityMainBinding.dengyu.getId()){
-            map = String.valueOf(AviatorEvaluator.execute(map));
-            activityMainBinding.text.setText(map);
+            if (map == ""){
+                activityMainBinding.text.setText(map);
+            }else if (map.charAt(map.length()-1) == '+'||map.charAt(map.length()-1) == '-'||map.charAt(map.length()-1) == '*'||map.charAt(map.length()-1) == '/'
+            ||map.charAt(map.length()-1) == '%'){
+                map = map.substring(0,map.length()-1);
+                activityMainBinding.text.setText(map);
+            }else{
+                map = String.valueOf(AviatorEvaluator.execute(map));
+                activityMainBinding.text.setText(map);
+            }
+
         }
 
     }
