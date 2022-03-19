@@ -10,17 +10,21 @@
         android:orientation="vertical"
         android:padding="50dp">
         <ImageView
+            android:id="@+id/img"
             android:layout_width="42dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:src="@mipmap/icon" />
+            android:src="@mipmap/icon"
+            />
 
         <EditText
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:ems="10"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/ic_baseline_person_24"
             android:hint="@string/username_text"
             android:importantForAutofill="no"
             android:inputType="textPersonName" />
@@ -30,7 +34,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:drawablePadding="5dp"
             android:hint="@string/password_text"
+            android:drawableStart="@drawable/ic_baseline_lock_24"
             android:importantForAutofill="no"
             android:inputType="textPassword" />
 
