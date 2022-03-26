@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BMICalculator</string>
+    <string name="bmi_text">BMI计算器</string>
+    <string name="weight_text">输入体重,单位公斤</string>
+    <string name="height_text">输入身高，单位米</string>
+    <string name="calculate_text">计算</string>
+    <string name="male_text">男</string>
+    <string name="gender_text">性别</string>
+    <string name="female_text">女</string>
+    <string name="clear_text">清空</string>
+</resources>
