@@ -16,7 +16,6 @@ final FragmentManager manager = getSupportFragmentManager();
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         //加载CrimeFragment
         Fragment blankFragment = new CrimeFragment();
         manager.beginTransaction()

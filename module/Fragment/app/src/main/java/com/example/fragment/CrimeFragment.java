@@ -1,5 +1,6 @@
 package com.example.fragment;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.fragment.databinding.FragmentCrimeBinding;
+
+import java.util.Calendar;
 import java.util.Date;
 
 public class CrimeFragment extends Fragment {
@@ -31,6 +34,10 @@ public class CrimeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentCrimeBinding.inflate(inflater,container, false);
+        Calendar calendar = Calendar.getInstance();
+        int i1 = calendar.get(Calendar.YEAR);
+        int i2 = calendar.get(Calendar.MONTH);
+        int i3 = calendar.get(Calendar.DAY_OF_MONTH);
         FragmentManager fragmentManager = getParentFragmentManager();
         //获取当前时间
         Date date = new Date();
@@ -38,8 +45,17 @@ public class CrimeFragment extends Fragment {
         binding.btnTime.setText(date.toString());
         //按钮点击事件
         binding.btnTime.setOnClickListener(view -> {
-            DatePickerFragment dpf = new DatePickerFragment();
-            dpf.show(getActivity().getSupportFragmentManager(), "日历通知");
+            DatePickerDialog dialog=new DatePickerDialog(getContext(), (datePicker, i4, i11, i21) -> {
+                //设置时间
+                Date date1 = new Date(i4 -1900, i11 -1, i21);
+                //使用bundle加载数据
+                Bundle bundle = new Bundle();
+                bundle.putString("日期", date1.toString());
+                //进行数据的传输
+                FragmentManager manager = getParentFragmentManager();
+                manager.setFragmentResult("Date",bundle);
+            },i1,i2,i3);
+            dialog.show();
         });
         //监听回传
         fragmentManager.setFragmentResultListener("Date", this, new FragmentResultListener() {
