@@ -51,6 +51,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="是否已解决"/>
+
+        <Button
+            android:id="@+id/btn_timer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="示例"/>
     </LinearLayout>
 
 </FrameLayout>

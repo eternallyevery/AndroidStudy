@@ -7,7 +7,6 @@
     tools:context=".MainActivity">
 
 
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_crime"
         android:layout_width="372dp"

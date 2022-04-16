@@ -1,10 +1,14 @@
 package com.example.fragment;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentResultListener;
 
+import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.widget.TimePicker;
 
 import com.example.fragment.databinding.ActivityMainBinding;
 
@@ -19,9 +23,10 @@ final FragmentManager manager = getSupportFragmentManager();
         //加载CrimeFragment
         Fragment blankFragment = new CrimeFragment();
         manager.beginTransaction()
-                .replace(R.id.fragment_container_crime,blankFragment)
+                .add(R.id.fragment_container_crime,blankFragment)
                 .addToBackStack(null)
                 .commit();
+
 
     }
 }
