@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">RecyclerDemo</string>
+    <string-array name="student_arr" >
+        <item>软件21</item>
+        <item>软件22</item>
+        <item>软件23</item>
+        <item>软件24</item>
+        <item>软件25</item>
+        <item>软件26</item>
+        <item>软件27</item>
+        <item>软件28</item>
+    </string-array>
+</resources>
